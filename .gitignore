@@ -1,0 +1,11 @@
+/*
+
+!/out/
+/out/*
+!/out/*.pdf
+!/src/
+
+!Dockerfile
+!Makefile
+!README.md
+!.gitignore
