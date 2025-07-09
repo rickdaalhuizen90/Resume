@@ -1,0 +1,18 @@
+% !TeX root = ./rick_daalhuizen_resume.tex
+\documentclass[letterpaper,11pt]{article}
+
+% Load all formatting, packages, and custom commands
+\usepackage{preamble}
+
+% Provide a default content file (English)
+\providecommand{\contentfile}{content_en.tex}
+
+\begin{document}
+
+% Check if the content file exists and include it
+\IfFileExists{\contentfile}{\input{\contentfile}}{%
+  \textbf{Error: Content file `\contentfile` not found.}
+}
+
+\end{document}
+

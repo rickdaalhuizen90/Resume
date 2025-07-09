@@ -1,0 +1,82 @@
+% preamble.sty
+% Resume preamble and formatting
+
+\ProvidesPackage{preamble}[2025/07/08 Resume Preamble Package]
+
+% Use Arial-like font (Helvetica) for ATS compatibility
+\RequirePackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Common packages
+\RequirePackage{titlesec}
+\RequirePackage{marvosym}
+\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage{verbatim}
+\RequirePackage{enumitem}
+\RequirePackage[pdftex]{hyperref}
+\RequirePackage{fancyhdr}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\setlength{\footskip}{10pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins using geometry for A4
+\RequirePackage[a4paper]{geometry}
+\geometry{
+  left=0.75in, % Adjust as desired
+  right=0.75in, % Adjust as desired
+  top=0.5in, % Adjust as desired
+  bottom=0.5in, % Adjust as desired
+  textwidth=\dimexpr\paperwidth - 2in\relax, % Example: 1 inch on each side
+  textheight=\dimexpr\paperheight - 1in\relax % Example: 0.5 inch on top/bottom
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{6pt}\bfseries\scshape\large
+}{}{0em}{}[\color{black}\titlerule \vspace{2pt}]
+
+% Contact information block (name, email, location, phone)
+\newcommand{\ContactInfo}[4]{%
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}%
+    \textbf{\Large #1} & \href{mailto:#2}{#2} \\
+    #3 & #4 \\
+  \end{tabular*}%
+}
+
+% Job entry header (no bullet)
+\newcommand{\JobEntry}[4]{%
+  \vspace{2pt}%
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+% Bulleted detail item for skills, certifications, interests, etc.
+\newcommand{\DetailItem}[2]{%
+  \item\small{\textbf{#1}: #2\vspace{-2pt}}%
+}
+
+% Bulleted achievement/responsibility for experience
+\newcommand{\BulletItem}[1]{%
+  \item #1
+}
+
+% List environment for sections (no bullets for headers)
+\newcommand{\ListStart}{\begin{itemize}[leftmargin=0pt, label={}]}
+\newcommand{\ListEnd}{\end{itemize}\vspace{-6pt}}
+
+% Sub-list environment for bulleted achievements/responsibilities
+\newcommand{\SubListStart}{\begin{itemize}[leftmargin=*, label=\textbullet]}
+\newcommand{\SubListEnd}{\end{itemize}\vspace{-4pt}}
